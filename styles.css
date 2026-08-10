@@ -30,7 +30,6 @@ body{
     margin:2%;
     gap:15px;
     width: 80%;
-    justify-content: left;
 }
 
 .title{
@@ -47,7 +46,7 @@ body{
     border-radius: 1%;;
     color: #436D7C;
     font-size: 100%;
-    width:95%;
+    width:96%;
     margin: 0px 30px;
     overflow-x: auto;
     padding-right: 25px;
@@ -65,21 +64,24 @@ th,td{
 }
 
 .status {
-    width:100px;
+    width:130px;
     border: 1px solid #436D7C;
     text-align: center;
     border-radius: 9px;
+    padding: 5px;
     background-color:#436D7C;
     color: white;
 }
 
 .complete{
+    width: 100px;
     background-color:#D3F7B5;
     color:#1F4451;
     border-color: #D3F7B5;
 }
 
 .pending{
+    width: 100px;
     background-color:#E8ECF1 ;
     color:#626D82;
     border-color:#E8ECF1 ;
