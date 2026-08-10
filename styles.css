@@ -27,14 +27,28 @@ body{
 }
 
 .utils{
-    margin-bottom:215px;
+    margin-bottom:150px;
 }
 
-.name-tag{
-    border: 1px solid black;
-    margin-top:25%;
-    margin-bottom:30%;
+.main{
+    margin-bottom: 5%;
+    margin-top:10%;
+    align-self:center;
 }
+.name-tag{
+    display: flex;
+    column-gap: 15px;
+    border: 1px solid #B5BDCD;
+    margin-top:10%;
+    margin-bottom:15%;
+    padding: 15px;
+    border-radius: 9px;
+}
+
+.help-heading{
+    font-size:24px;
+}
+
 
 .nav{
     margin-top:15px;
@@ -57,13 +71,45 @@ a:hover{
 .help-button{
     background-color: #1F4451;
     color: white;
-    padding:5px;
+    padding:8px;
     border-radius: 5px;
+}
+
+.status {
+    width:80px;
+    border: 1px solid #436D7C;
+    text-align: center;
+    border-radius: 9px;
+    background-color:#436D7C;
+    color: white;
+}
+
+.complete{
+    background-color:#D3F7B5;
+    color:#1F4451;
+    border-color: #D3F7B5;
+}
+
+.pending{
+    background-color:#E8ECF1 ;
+    color:#626D82;
+    border-color:#E8ECF1 ;
 }
 
 .nav-bar{
     margin:30px 30px
 }
+
+.nav{
+    display: flex;
+    column-gap: 15px;
+}
+
+.text{
+    margin:5px;
+}
+
+
 
 .title{
     display: flex;
@@ -116,7 +162,7 @@ thead{
     width:95px;
     outline-color: #436D7C;
     color:#436D7C;
-    border-radius: 6px;
+    border-radius: 5px;
     border:0.5mm solid #1F4451;
 }
 
