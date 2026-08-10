@@ -12,7 +12,7 @@ body{
 
 .main-container{
     display:grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 23% 77%;
     height:100vh;
 }
 
@@ -96,9 +96,7 @@ a:hover{
     border-color:#E8ECF1 ;
 }
 
-.nav-bar{
-    margin:30px 30px
-}
+
 
 .nav{
     display: flex;
@@ -118,6 +116,14 @@ a:hover{
 
 }
 
+
+
+.nav2-Documents{
+    color: #B5BDCD;
+}
+
+
+
 .content{
     margin:0px 30px;
 }
@@ -134,7 +140,7 @@ a:hover{
 .content{
     background-color: white;
     padding:10px;
-    height:575px;
+    height:580px;
     border-radius: 8px;
     color: #436D7C;
     font-size: 18px;
@@ -163,9 +169,8 @@ thead{
 
 .action{
     background-color: white;
-    padding: 2px 15px;
-    width:95px;
-    outline-color: #436D7C;
+    padding: 6px 15px;
+    width:130px;
     color:#436D7C;
     border-radius: 5px;
     border:0.5mm solid #1F4451;
@@ -174,8 +179,8 @@ thead{
 
 .box{
     padding:25px;
-    border-radius: 18px;
-    border-color: white;
+    border-radius: 5px;
+    border-color: lightgray;
 }
 
 
@@ -195,7 +200,8 @@ thead{
 
 .nav-bar{
     display:flex;
-    gap:35px;
+    margin:30px;
+    gap:15px;
 
 }
 
