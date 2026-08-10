@@ -1,4 +1,4 @@
-*,::before,::after{
+*{
     margin:0px;
     padding: 0px;
     box-sizing: border-box;
@@ -13,16 +13,17 @@ body{
 .main-container{
     display:grid;
     grid-template-columns: 20% 80%;
+    height:100vh;
 }
 
 .sidebar{
-    background-color:#EBEBEB ;
+    background-color:white ;
     display:grid;
     padding:20px;
 }
 
 .sidebar-content{
-    row: gap 200px;
+    row-gap: 200px;
 }
 
 .utils{
@@ -115,6 +116,8 @@ thead{
     width:95px;
     outline-color: #436D7C;
     color:#436D7C;
+    border-radius: 6px;
+    border:0.5mm solid #1F4451;
 }
 
 
@@ -137,4 +140,10 @@ thead{
 
 .color{
     color: rgb(146, 145, 145);
+}
+
+.nav-bar{
+    display:flex;
+    gap:35px;
+
 }
