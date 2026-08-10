@@ -6,7 +6,7 @@
 
 body{
     background-color: rgb(228, 227, 227);
-    font-family: sans-serif; 
+    font-family: Spline sans,sans-serif; 
 }
 
 
@@ -76,7 +76,7 @@ a:hover{
 }
 
 .status {
-    width:80px;
+    width:100px;
     border: 1px solid #436D7C;
     text-align: center;
     border-radius: 9px;
@@ -127,24 +127,29 @@ a:hover{
     margin-top:10px;
 }
 
+.image{
+    width:300px;
+}
+
 .content{
     background-color: white;
     padding:10px;
+    height:575px;
     border-radius: 8px;
     color: #436D7C;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .main-table{
     width:100%;
-    height:380px;
+    height:300px;
     
 }
 
 th,td{
     text-align: left;
     border-bottom: 0.5px solid lightgray;
-    padding: 4px;
+    padding: 19px;
 }
 
 .help{
@@ -185,11 +190,19 @@ thead{
 }
 
 .color{
-    color: rgb(146, 145, 145);
+    color: #B5BDCD;
 }
 
 .nav-bar{
     display:flex;
     gap:35px;
 
+}
+
+.user{
+    margin-right: 75px;
+}
+.arrow{
+    margin-left: 15px;
+    margin-right:0px ;
 }
