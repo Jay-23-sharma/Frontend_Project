@@ -1,155 +1,185 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyNotes</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="main-container">
-        <div class="sidebar">
-
-            <div class="main">
-                <img class="image" src="icons/Union.svg" alt="" >
-            </div>
-
-            <div class="sidebar-content">
-                <div class="name-tag">
-                    <div class="logo" ><img class="img" src="icons/Group 79.svg" alt="Random logo"></div>
-
-                    <div class="info">
-                        <div class="name">Jay Sharma</div>
-                        <div class="type">Primary User</div>
-                    </div>
-                    
-                    <div class="arrow">
-                        <img src="icons/Shape.png" alt="">
-                    </div>
-                </div>
-
-                <div class="side-element">
-                    <div class="utils">
-                        <div class="nav">
-                        
-                         <div><img src="icons/home 1.png" ></div>
-                            <div class="text"><p><a href="">Home</a></p></div>
-                        
-                        </div>
-
-                        <div class="nav">
-                            <div><img src="icons/file-text 1.png" ></div>
-                            <div class="text"><p><a href="">Documents</a></p></div>
-                        </div>
-                        
-                        <div class="nav">
-                            <div><img src="icons/message-circle 1.png" ></div>
-                            <div class="text"><p><a href="">Chat with Neptune</a></p></div>
-                        </div>
-
-                        <div class="nav">
-                            <div><img src="icons/help-circle 1.png" ></div>
-                            <div class="text"><p><a href="">Help</a></p></div>
-                        </div>
-
-                        <div class="nav">
-                            <div><img src="icons/settings 1.png" ></div>
-                            <div class="text"><p><a href="">Settings</a></p></div>
-                        </div>
-                    </div>
-
-                    <div class="Contact-us">
-                        <img src="icons/phone 1.png" alt="">
-                        <h4 class="help-heading">Having trouble?</h4>
-                        <p class="help">Feel free to contact us and we will always help you through the process</p>
-                        <button type="button" class="help-button">Contact Us</button>
-                    </div>
-                </div>
-            </div>
+      <div class="sidebar">
+        <div class="main">
+          <img class="image" src="icons/Union.svg" alt="" />
         </div>
 
-
-
-        <div class="main-content">
-            <div class="nav-bar">
-                <div class="nav2-home"><p>Home</p></div>
-                <div class="nav2-arrow"><img src="chevron-right.png" alt=""></div>
-                <div class="nav2-Documents"><p>Documents</p></div>
+        <div class="sidebar-content">
+          <div class="name-tag">
+            <div class="logo">
+              <img class="img" src="icons/Group 79.svg" alt="Random logo" />
             </div>
-            <div class="title">
-                <div class="heading title-bar"><h1>My Documents</h1></div>
-                <div class="search-box">
-                    <form action=""> <label for="" ><input class="box" type="text" placeholder="Search Documents" ><img src="icons/Layer_1.png" alt="search logo" class="search-icon">
-                    </label></form>
+
+            <div class="info">
+              <div class="name">Jay Sharma</div>
+              <div class="type">Primary User</div>
+            </div>
+
+            <div class="arrow">
+              <img src="icons/Shape.png" alt="" />
+            </div>
+          </div>
+
+          <div class="side-element">
+            <div class="utils">
+              <div class="nav">
+                <div><img src="icons/home 1.png" /></div>
+                <div class="text">
+                  <p><a href="">Home</a></p>
                 </div>
+              </div>
+
+              <div class="nav">
+                <div><img src="icons/file-text 1.png" /></div>
+                <div class="text">
+                  <p><a href="">Documents</a></p>
+                </div>
+              </div>
+
+              <div class="nav">
+                <div><img src="icons/message-circle 1.png" /></div>
+                <div class="text">
+                  <p><a href="">Chat with Neptune</a></p>
+                </div>
+              </div>
+
+              <div class="nav">
+                <div><img src="icons/help-circle 1.png" /></div>
+                <div class="text">
+                  <p><a href="">Help</a></p>
+                </div>
+              </div>
+
+              <div class="nav">
+                <div><img src="icons/settings 1.png" /></div>
+                <div class="text">
+                  <p><a href="">Settings</a></p>
+                </div>
+              </div>
             </div>
-            <div class="content">
-                <table class="main-table">
-                    
-                    <thead class="head">
-                        <tr>
-                            <th class="element"><input type="checkbox"></th>
-                            <th class="element">Document Name</th>
-                            <th class="element">Status</th>
-                            <th class="element">Last Modified</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody class="body">
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status">Needs Signing</p></td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Sign now</button></td>
-            
-                        </tr>
-                        
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status pending">Pending</p><i class="color">Waiting for</i> 1 person</td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Preview</button></td>
-                        </tr>
 
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status pending">Pending</p><i class="color">Waiting for</i> 2 people</td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Preview</button></td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status complete">Completed</p></td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Download PDF</button></td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status complete">Completed</p></td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Download PDF</button></td>
-                        </tr>
-
-                        <tr class="last">
-                            <td><input type="checkbox"></td>
-                            <td>Title of Document Goes Here</td>
-                            <td><p class="status complete">Completed</p></td>
-                            <td>10/22/2024<br>2:01 pm</td>
-                            <td><button class="action" type="button">Download PDF</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="Contact-us">
+              <img src="icons/phone 1.png" alt="" />
+              <h4 class="help-heading">Having trouble?</h4>
+              <p class="help">
+                Feel free to contact us and we will always help you through the
+                process
+              </p>
+              <button type="button" class="help-button">Contact Us</button>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="main-content">
+        <div class="nav-bar">
+          <div class="nav2-home"><p>Home</p></div>
+          <div class="nav2-arrow"><img src="chevron-right.png" alt="" /></div>
+          <div class="nav2-Documents"><p>Documents</p></div>
+        </div>
+        <div class="title">
+          <div class="heading title-bar"><h1>My Documents</h1></div>
+          <div class="search-box">
+            <form action="">
+              <label for=""
+                ><input
+                  class="box"
+                  type="text"
+                  placeholder="Search Documents"
+                /><img
+                  src="icons/Layer_1.png"
+                  alt="search logo"
+                  class="search-icon"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
+        <div class="content">
+          <table class="main-table">
+            <thead class="head">
+              <tr>
+                <th class="element"><input type="checkbox" /></th>
+                <th class="element">Document Name</th>
+                <th class="element">Status</th>
+                <th class="element">Last Modified</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody class="body">
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td><p class="status">Needs Signing</p></td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td><button class="action" type="button">Sign now</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td>
+                  <p class="status pending">Pending</p>
+                  <i class="color">Waiting for</i> 1 person
+                </td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td><button class="action" type="button">Preview</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td>
+                  <p class="status pending">Pending</p>
+                  <i class="color">Waiting for</i> 2 people
+                </td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td><button class="action" type="button">Preview</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td><p class="status complete">Completed</p></td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td>
+                  <button class="action" type="button">Download PDF</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td><p class="status complete">Completed</p></td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td>
+                  <button class="action" type="button">Download PDF</button>
+                </td>
+              </tr>
+
+              <tr class="last">
+                <td><input type="checkbox" /></td>
+                <td>Title of Document Goes Here</td>
+                <td><p class="status complete">Completed</p></td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td>
+                  <button class="action" type="button">Download PDF</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
