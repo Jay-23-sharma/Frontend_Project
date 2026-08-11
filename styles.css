@@ -44,19 +44,19 @@ body{
     margin:2%;
     text-align: center;
     align-items: center;
-    position: relative;
+    
 }
 
 .search-icon{
     position:absolute;
-    right:1%;
-    top:25%;
+    right:3%;
+    top:29%;
     
 }
 
 .search-box{
     align-self: center;
-    
+    position: relative;
 }
 
 .box{
