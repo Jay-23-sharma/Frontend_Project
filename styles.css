@@ -44,15 +44,24 @@ body{
     margin:2%;
     text-align: center;
     align-items: center;
+    position: relative;
+}
+
+.search-icon{
+    position:absolute;
+    right:1%;
+    top:25%;
+    
 }
 
 .search-box{
     align-self: center;
+    
 }
 
 .box{
     padding:15px;
-    border-radius: 1px;
+    border-radius: 9px;
     border-color: lightgray;
 }
 
@@ -73,10 +82,9 @@ body{
     border-radius: 1%;
     color: #436D7C;
     font-size: 100%;
-    width:96%;
+    width:98%;
     /* margin: 0px 2%; */
     overflow-x: auto;
-    padding-right: 25px;
 }
 
 .main-table{
@@ -154,6 +162,7 @@ th,td{
     width: 100%;
     overflow-wrap:anywhere ;
     height: 100%;
+    flex-grow:1;
 }
 
 .side-element{
@@ -166,7 +175,7 @@ th,td{
 }
 
 .Contact-us{
-   padding-bottom: 50%;
+   padding-bottom: 10%;
     margin-top: auto;
 }
 
@@ -213,7 +222,7 @@ th,td{
 .utils{
     display: flex;
     flex-direction: column;
-    margin-bottom:75%;
+    /* margin-bottom:75%; */
     width:100%;
     column-gap: 6vh;
 }
@@ -258,10 +267,10 @@ a:hover{
 }
 
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:768px) {
     .main-container{
-        display: flex;
-        flex-direction: column;
+        display:flex;
+        flex-wrap:wrap
     }
 
     .sidebar{
@@ -269,11 +278,30 @@ a:hover{
         width: 100%;
     }
 
-    .sidebar-content{
+    /* .sidebar-content{
         display: flex;
         flex-direction: column;
+    } */
+
+    .title{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
+    .main-content,.main-table{
+        width: 100%;
+    }
+
+    .side-element{
+        display: flex;
+        flex-direction: column;
+        column-gap:1%
+    }
+
+    .Contact-us{
+        padding-bottom: 45%;
+    }
    
 }
 
