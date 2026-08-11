@@ -286,7 +286,10 @@ a:hover{
 
     .title{
         display: flex;
-        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .search-box,.search-icon{
         overflow: hidden;
     }
 
