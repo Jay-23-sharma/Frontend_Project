@@ -71,7 +71,7 @@ body{
 }
 
 .text{
-    margin:2%;
+   
     font-size:100%;
 }
 
@@ -202,16 +202,13 @@ th,td{
 }
 
 .user{
-    margin-right: 35%;
-    margin-left:1% ;
+    
     width: 20%;
 }
 
 .info{
     display: flex;
     flex-direction: column;
-    margin-right: 35%;
-    margin-left: 3%;
     align-self: center;
 }
 
