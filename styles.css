@@ -215,16 +215,29 @@ td {
   padding: 15px 0px;
 }
 
+.text{
+    align-self: center;
+}
+
+.util-img{
+    display: flex;
+    width:15%;
+    justify-content: flex-end;
+}
+
+
+
 .nav:hover {
   background-color: #d3f7b5;
 }
 
-a {
+.util-button {
   text-decoration: none;
   color: #436d7c;
+
 }
 
-a:hover {
+.util-button:hover {
   background-color: #d3f7b5;
 }
 
