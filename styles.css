@@ -172,6 +172,7 @@ td {
   padding: 5%;
   border-radius: 9px;
   width: 100%;
+  justify-content: space-between;
 }
 
 .logo {
@@ -183,6 +184,7 @@ td {
   align-self: center;
 }
 
+
 .user {
   width: 20%;
 }
@@ -191,6 +193,7 @@ td {
   display: flex;
   flex-direction: column;
   align-self: center;
+  width: 60%;
 }
 
 .type {
@@ -241,7 +244,7 @@ a:hover {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   .main-container {
     display: flex;
     flex-wrap: wrap;
@@ -250,6 +253,11 @@ a:hover {
   .sidebar {
     height: auto;
     width: 100%;
+  }
+
+  .name-tag{
+    width: 80%;
+    justify-self: center;
   }
 
   .title {
