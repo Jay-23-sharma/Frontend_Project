@@ -172,7 +172,14 @@ td {
   padding: 5%;
   border-radius: 9px;
   width: 100%;
-  justify-content: space-between;
+  column-gap: 6%;
+}
+
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
 }
 
 .logo {
@@ -181,7 +188,7 @@ td {
 
 .img {
   width: 100%;
-  align-self: center;
+  align-self: flex-end;
 }
 
 
@@ -231,10 +238,9 @@ td {
   background-color: #d3f7b5;
 }
 
-.util-button {
+.util-button, .content-text {
   text-decoration: none;
   color: #436d7c;
-
 }
 
 .util-button:hover {
