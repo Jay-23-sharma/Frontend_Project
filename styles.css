@@ -6,8 +6,13 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
 body {
   background-color: rgb(228, 227, 227);
+  height: 100%;
   font-family:
     Spline sans,
     sans-serif;
@@ -25,6 +30,7 @@ body {
   min-width: 0;
   align-items: flex-start;
   padding-left: 3%;
+  overflow-y: auto;
 }
 
 .nav-bar {
@@ -140,10 +146,10 @@ td {
   display: flex;
   flex-direction: column;
   padding: 1%;
-  height: 100%;
-  overflow: auto;
-  height: 100vh;
+  height: auto;
+  min-height: 100dvh;
   gap: 5%;
+  overflow-y: auto;
 }
 
 .main {
@@ -153,7 +159,7 @@ td {
 
 .sidebar-content {
   width: 100%;
-  overflow-wrap: anywhere;
+  /* overflow-wrap: anywhere; */
   height: 100%;
 }
 
@@ -164,6 +170,12 @@ td {
   width: 100%;
   height: 90%;
 }
+
+.Contact-us{
+  width:100%;
+  height: auto;
+}
+
 
 .name-tag {
   display: flex;
