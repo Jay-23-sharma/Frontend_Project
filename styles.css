@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   height: 100%;
 }
 
@@ -86,7 +86,6 @@ body {
   color: #436d7c;
   font-size: 100%;
   width: 98%;
-  /* margin: 0px 2%; */
   overflow-x: auto;
 }
 
@@ -159,7 +158,6 @@ td {
 
 .sidebar-content {
   width: 100%;
-  /* overflow-wrap: anywhere; */
   height: 100%;
 }
 
@@ -171,11 +169,10 @@ td {
   height: 90%;
 }
 
-.Contact-us{
-  width:100%;
+.Contact-us {
+  width: 100%;
   height: auto;
 }
-
 
 .name-tag {
   display: flex;
@@ -187,11 +184,11 @@ td {
   column-gap: 6%;
 }
 
-.arrow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
 }
 
 .logo {
@@ -202,7 +199,6 @@ td {
   width: 100%;
   align-self: flex-end;
 }
-
 
 .user {
   width: 20%;
@@ -234,23 +230,22 @@ td {
   padding: 15px 0px;
 }
 
-.text{
-    align-self: center;
+.text {
+  align-self: center;
 }
 
-.util-img{
-    display: flex;
-    width:15%;
-    justify-content: flex-end;
+.util-img {
+  display: flex;
+  width: 15%;
+  justify-content: flex-end;
 }
-
-
 
 .nav:hover {
   background-color: #d3f7b5;
 }
 
-.util-button, .content-text {
+.util-button,
+.content-text {
   text-decoration: none;
   color: #436d7c;
 }
@@ -286,7 +281,7 @@ td {
     width: 100%;
   }
 
-  .name-tag{
+  .name-tag {
     width: 80%;
     justify-self: center;
   }
