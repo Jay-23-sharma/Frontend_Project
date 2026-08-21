@@ -6,6 +6,7 @@
     <title>MyNotes</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <div class="main-container">
       <div class="sidebar">
@@ -25,7 +26,13 @@
             </div>
 
             <div class="arrow">
-              <a href=""><img src="icons/Shape.png" alt="" /></a>
+              <a href="#" id="profile-btn"
+                ><img src="icons/Shape.png" alt="Random Arrow"
+              /></a>
+              <div id="dropdown" class="dropdown">
+                <a href="#">Profile</a>
+                <a href="#">Logout</a>
+              </div>
             </div>
           </div>
 
@@ -34,35 +41,62 @@
               <div class="nav">
                 <div class="util-img"><img src="icons/home 1.png" /></div>
                 <div class="text">
-                    <a class="util-button" href="">Home</a> 
+                  <a class="util-button" href="home.html">Home</a>
                 </div>
               </div>
 
               <div class="nav">
                 <div class="util-img"><img src="icons/file-text 1.png" /></div>
                 <div class="text">
-                    <a class="util-button" href="">Documents</a>    
+                  <a class="util-button" href="index.html">Documents</a>
                 </div>
               </div>
 
               <div class="nav">
-                <div class="util-img"><img src="icons/message-circle 1.png" /></div>
+                <div class="util-img">
+                  <img src="icons/message-circle 1.png" />
+                </div>
                 <div class="text">
-                    <a class="util-button" href="">Chat with Neptune</a>    
+                  <a id="aiBtn" class="util-button" href=""
+                    >Chat with Neptune</a
+                  >
+                  <dialog id="modalAI">
+                    <h1>Nep-AI</h1>
+                    <ul>
+                      <li>Ask Anything</li>
+                      <br />
+                      <li>Expand Chat</li>
+                    </ul>
+                  </dialog>
                 </div>
               </div>
 
               <div class="nav">
-                <div class="util-img"><img src="icons/help-circle 1.png" /></div>
+                <div class="util-img">
+                  <img src="icons/help-circle 1.png" />
+                </div>
                 <div class="text">
-                    <a class="util-button" href="">Help</a> 
+                  <a class="util-button" href="help.html">Help</a>
                 </div>
               </div>
 
               <div class="nav">
                 <div class="util-img"><img src="icons/settings 1.png" /></div>
                 <div class="text">
-                    <a class="util-button" href="">Settings</a> 
+                  <a id="settingsBtn" class="util-button" href="#">Settings</a>
+                  <dialog id="modal">
+                    <h2>Settings</h2>
+                    <p>
+                      These are settings which will show when clicked on
+                      settings.
+                    </p>
+                    <br />
+                    <ul>
+                      <li>Profile</li>
+                      <br />
+                      <li>Display</li>
+                    </ul>
+                  </dialog>
                 </div>
               </div>
             </div>
@@ -82,13 +116,107 @@
 
       <div class="main-content">
         <div class="nav-bar">
-          <div class="nav2-home"><p>Home</p></div>
+          <div class="nav2-home">
+            <p>Home</p>
+          </div>
           <div class="nav2-arrow"><img src="chevron-right.png" alt="" /></div>
-          <div class="nav2-Documents"><p>Documents</p></div>
+          <div class="nav2-Documents">
+            <p>Documents</p>
+          </div>
         </div>
         <div class="title">
-          <div class="heading title-bar"><h1>My Documents</h1></div>
+          <div class="heading title-bar">
+            <h1>My Documents</h1>
+          </div>
+
           <div class="search-box">
+            <div class="taskBtn">
+              <button id="addBtn" type="button">Add Document</button>
+              <dialog id="modalTask">
+                <div class="addFormBox">
+                  <div class="addHeading"><h1>DOCUMENT DETAILS</h1></div>
+                  <div class="addFormTable">
+                    <form id="addForm" action="">
+                      <label for="dTitle"><b>Document Title:</b></label>
+                      <input type="text" id="docTitle" /><br />
+                      <label for="docStatus"><b>Select Status</b></label>
+
+                      <div class="form-container">
+                        <button
+                          type="button"
+                          id="docStatus"
+                          class="dropdown-button"
+                        >
+                          <span id="selectedStatus">Completed</span>
+                        </button>
+
+                        <div id="statusOptions" class="dropdown-options">
+                          <div class="dropdown-option" data-value="completed">
+                            Completed
+                          </div>
+
+                          <div class="dropdown-option" data-value="pending">
+                            Pending
+                          </div>
+
+                          <div
+                            class="dropdown-option"
+                            data-value="signRequired"
+                          >
+                            Needs Signing
+                          </div>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="status"
+                          id="statusValue"
+                          value="completed"
+                        />
+                      </div>
+                      <br />
+
+                      <label for="actionStatus"><b>Select Action</b></label>
+
+                      <div class="action-container">
+                        <button
+                          type="button"
+                          id="actionStatus"
+                          class="dropdown-button"
+                        >
+                          <span id="selectedAction">Sign-Now</span>
+                        </button>
+
+                        <div id="actionOptions" class="dropdown-options">
+                          <div class="dropdown-option" data-value="sign-now">
+                            Sign-Now
+                          </div>
+
+                          <div class="dropdown-option" data-value="preview">
+                            Preview
+                          </div>
+
+                          <div class="dropdown-option" data-value="downloadPdf">
+                            Download-PDF
+                          </div>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="status"
+                          id="actionValue"
+                          value="completed"
+                        />
+                      </div>
+
+                      <br />
+                      <button id="subBtn" type="submit">SUBMIT</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+              <button id="removeBtn" type="remove">Remove Document</button>
+            </div>
             <form action="">
               <label for=""
                 ><input
@@ -119,61 +247,117 @@
             <tbody class="body">
               <tr>
                 <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
-                <td><p class="status">Needs Signing</p></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
+                <td>
+                  <p class="status">Needs Signing</p>
+                </td>
                 <td>10/22/2024<br />2:01 pm</td>
-                <td><button class="action" type="button">Sign now</button></td>
+                <td>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
+                </td>
               </tr>
 
               <tr>
                 <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
                 <td>
                   <p class="status pending">Pending</p>
                   <i class="color">Waiting for</i> 1 person
                 </td>
                 <td>10/22/2024<br />2:01 pm</td>
-                <td><button class="action" type="button">Preview</button></td>
+                <td>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
+                </td>
               </tr>
 
               <tr>
                 <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
                 <td>
                   <p class="status pending">Pending</p>
                   <i class="color">Waiting for</i> 2 people
                 </td>
                 <td>10/22/2024<br />2:01 pm</td>
-                <td><button class="action" type="button">Preview</button></td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
-                <td><p class="status complete">Completed</p></td>
-                <td>10/22/2024<br />2:01 pm</td>
                 <td>
-                  <button class="action" type="button">Download PDF</button>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
                 </td>
               </tr>
 
               <tr>
                 <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
-                <td><p class="status complete">Completed</p></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
+                <td>
+                  <p class="status complete">Completed</p>
+                </td>
                 <td>10/22/2024<br />2:01 pm</td>
                 <td>
-                  <button class="action" type="button">Download PDF</button>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
+                <td>
+                  <p class="status complete">Completed</p>
+                </td>
+                <td>10/22/2024<br />2:01 pm</td>
+                <td>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
                 </td>
               </tr>
 
               <tr class="last">
                 <td><input type="checkbox" /></td>
-                <td><a class="content-text" href="">Title of Document Goes Here</a></td>
-                <td><p class="status complete">Completed</p></td>
+                <td>
+                  <a class="content-text" href=""
+                    >Title of Document Goes Here</a
+                  >
+                </td>
+                <td>
+                  <p class="status complete">Completed</p>
+                </td>
                 <td>10/22/2024<br />2:01 pm</td>
                 <td>
-                  <button class="action" type="button">Download PDF</button>
+                  <div class="access">
+                    <button class="action" type="button">Sign now</button>
+                    <a><img src="icons/more.png" alt="" /></a>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -181,5 +365,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
