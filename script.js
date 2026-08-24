@@ -66,6 +66,8 @@ const actionValue = document.querySelector("#actionValue");
 const documentBody = document.querySelector("#documentBody");
 const addForm = document.querySelector("#addForm");
 
+const searchBox = document.querySelector(".box");
+
 let documents = JSON.parse(localStorage.getItem("document")) || [];
 let editingId = null;
 
@@ -136,7 +138,21 @@ function getStatusClass(status) {
 function addDocuments() {
   documentBody.innerHTML = "";
 
-  documents.forEach((doc) => {
+  const searchText = searchBox.value.trim().toLowerCase();
+
+  const filteredDocuments = documents.filter((doc) => {
+    const title = doc.title.toLowerCase();
+    const status = getStatus(doc.status).toLowerCase();
+    const action = getAction(doc.action).toLowerCase();
+
+    return (
+      title.includes(searchText) ||
+      status.includes(searchText) ||
+      action.includes(searchText)
+    );
+  });
+
+  filteredDocuments.forEach((doc) => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
@@ -162,19 +178,16 @@ function addDocuments() {
 
       <td>
         <div class="access">
-
           <button class="action" type="button">
             ${getAction(doc.action)}
           </button>
 
           <div class="table-menu">
-
             <a href="#" class="table-dropdown">
               <img src="icons/more.png" alt="">
             </a>
 
             <div class="table-dropdown-options">
-
               <div>
                 <a
                   href="#"
@@ -194,11 +207,8 @@ function addDocuments() {
                   Delete
                 </a>
               </div>
-
             </div>
-
           </div>
-
         </div>
       </td>
     `;
@@ -207,10 +217,13 @@ function addDocuments() {
   });
 }
 
+searchBox.addEventListener("input", () => {
+  addDocuments();
+});
+
 addBtn.addEventListener("click", (event) => {
   event.preventDefault();
   resetForm();
-
   modalTask.showModal();
 });
 
@@ -268,11 +281,9 @@ document.addEventListener("click", (event) => {
   }
 
   if (!event.target.closest(".table-menu")) {
-    document
-      .querySelectorAll(".table-dropdown-options")
-      .forEach((option) => {
-        option.classList.remove("show");
-      });
+    document.querySelectorAll(".table-dropdown-options").forEach((option) => {
+      option.classList.remove("show");
+    });
   }
 });
 
@@ -286,13 +297,11 @@ documentBody.addEventListener("click", (event) => {
     const menu = moreBtn.closest(".table-menu");
     const options = menu.querySelector(".table-dropdown-options");
 
-    document
-      .querySelectorAll(".table-dropdown-options")
-      .forEach((item) => {
-        if (item !== options) {
-          item.classList.remove("show");
-        }
-      });
+    document.querySelectorAll(".table-dropdown-options").forEach((item) => {
+      if (item !== options) {
+        item.classList.remove("show");
+      }
+    });
 
     options.classList.toggle("show");
 
@@ -385,7 +394,7 @@ addForm.addEventListener("submit", (event) => {
       title: title,
       status: status,
       action: action,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
     };
 
     documents.push(newDocument);
