@@ -30,8 +30,8 @@
                 ><img src="icons/Shape.png" alt="Random Arrow"
               /></a>
               <div id="dropdown" class="dropdown">
-                <a href="#">Profile</a>
-                <a href="#">Logout</a>
+                <div class="profileOption"><a href="#">Profile</a></div>
+                <div class="profileOption"><a href="#">Logout</a></div>
               </div>
             </div>
           </div>
@@ -131,15 +131,30 @@
 
           <div class="search-box">
             <div class="taskBtn">
-              <button id="addBtn" type="button">Add Document</button>
+              <button id="addBtn" type="button">Add</button>
               <dialog id="modalTask">
                 <div class="addFormBox">
-                  <div class="addHeading"><h1>DOCUMENT DETAILS</h1></div>
+                  <div class="addHeading">
+                    <h1>DOCUMENT DETAILS</h1>
+                  </div>
+
                   <div class="addFormTable">
-                    <form id="addForm" action="">
-                      <label for="dTitle"><b>Document Title:</b></label>
-                      <input type="text" id="docTitle" /><br />
-                      <label for="docStatus"><b>Select Status</b></label>
+                    <form id="addForm">
+                      <label for="docTitle">
+                        <b>Document Title:</b>
+                      </label>
+
+                      <input
+                        type="text"
+                        id="docTitle"
+                        placeholder="Enter document Name"
+                      />
+
+                      <br />
+
+                      <label for="docStatus">
+                        <b>Select Status</b>
+                      </label>
 
                       <div class="form-container">
                         <button
@@ -147,7 +162,9 @@
                           id="docStatus"
                           class="dropdown-button"
                         >
-                          <span id="selectedStatus">Completed</span>
+                          <span id="selectedStatus">
+                            Select Current Status
+                          </span>
                         </button>
 
                         <div id="statusOptions" class="dropdown-options">
@@ -171,12 +188,15 @@
                           type="hidden"
                           name="status"
                           id="statusValue"
-                          value="completed"
+                          value=""
                         />
                       </div>
+
                       <br />
 
-                      <label for="actionStatus"><b>Select Action</b></label>
+                      <label for="actionStatus">
+                        <b>Select Action</b>
+                      </label>
 
                       <div class="action-container">
                         <button
@@ -184,7 +204,7 @@
                           id="actionStatus"
                           class="dropdown-button"
                         >
-                          <span id="selectedAction">Sign-Now</span>
+                          <span id="selectedAction"> Action Required </span>
                         </button>
 
                         <div id="actionOptions" class="dropdown-options">
@@ -203,19 +223,28 @@
 
                         <input
                           type="hidden"
-                          name="status"
+                          name="action"
                           id="actionValue"
-                          value="completed"
+                          value=""
                         />
                       </div>
 
                       <br />
-                      <button id="subBtn" type="submit">SUBMIT</button>
+
+                      <div class="Task-buttons">
+                        <button id="subBtn" type="submit">
+                          <b>SUBMIT</b>
+                        </button>
+
+                        <button id="canBtn" type="button">
+                          <b>CANCEL</b>
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </div>
               </dialog>
-              <button id="removeBtn" type="remove">Remove Document</button>
+              <button id="removeBtn" type="remove">Remove</button>
             </div>
             <form action="">
               <label for=""
@@ -244,122 +273,8 @@
               </tr>
             </thead>
 
-            <tbody class="body">
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status">Needs Signing</p>
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status pending">Pending</p>
-                  <i class="color">Waiting for</i> 1 person
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status pending">Pending</p>
-                  <i class="color">Waiting for</i> 2 people
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status complete">Completed</p>
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status complete">Completed</p>
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
-
-              <tr class="last">
-                <td><input type="checkbox" /></td>
-                <td>
-                  <a class="content-text" href=""
-                    >Title of Document Goes Here</a
-                  >
-                </td>
-                <td>
-                  <p class="status complete">Completed</p>
-                </td>
-                <td>10/22/2024<br />2:01 pm</td>
-                <td>
-                  <div class="access">
-                    <button class="action" type="button">Sign now</button>
-                    <a><img src="icons/more.png" alt="" /></a>
-                  </div>
-                </td>
-              </tr>
+            <tbody id="documentBody" class="body">
+              
             </tbody>
           </table>
         </div>
