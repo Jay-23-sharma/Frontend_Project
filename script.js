@@ -15,7 +15,7 @@ document.addEventListener("click", (event) => {
 const helpBtn = document.querySelector(".help-button");
 
 helpBtn.addEventListener("click", () => {
-  alert("We will contact you soon");
+  alert("Our sevice team will contact you soon");
 });
 
 const modal = document.querySelector("#modal");
@@ -174,6 +174,8 @@ function addDocuments() {
 
       <td>
         ${doc.date}
+        <br>
+        ${doc.time}
       </td>
 
       <td>
@@ -315,9 +317,7 @@ documentBody.addEventListener("click", (event) => {
 
     const id = editBtn.dataset.id;
 
-    const doc = documents.find(
-      (item) => String(item.id) === String(id)
-    );
+    const doc = documents.find((item) => String(item.id) === String(id));
 
     if (!doc) {
       return;
@@ -344,9 +344,7 @@ documentBody.addEventListener("click", (event) => {
 
     const id = deleteBtn.dataset.id;
 
-    documents = documents.filter(
-      (doc) => String(doc.id) !== String(id)
-    );
+    documents = documents.filter((doc) => String(doc.id) !== String(id));
 
     saveDocuments();
     addDocuments();
@@ -378,15 +376,14 @@ addForm.addEventListener("submit", (event) => {
   }
 
   if (editingId !== null) {
-    const doc = documents.find(
-      (item) => String(item.id) === String(editingId)
-    );
+    const doc = documents.find((item) => String(item.id) === String(editingId));
 
     if (doc) {
       doc.title = title;
       doc.status = status;
       doc.action = action;
-      doc.date = new Date().toLocaleString();
+      doc.date = new Date().toLocaleDateString();
+      doc.time = new Date().toLocaleTimeString();
     }
   } else {
     const newDocument = {
@@ -394,7 +391,8 @@ addForm.addEventListener("submit", (event) => {
       title: title,
       status: status,
       action: action,
-      date: new Date().toLocaleString(),
+      date: new Date().toLocaleDateString(),
+      time: new Date().toLocaleTimeString(),
     };
 
     documents.push(newDocument);

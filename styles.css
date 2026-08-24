@@ -39,8 +39,13 @@ body {
   gap: 15px;
   width: 80%;
 }
+.nav2-Home {
+  text-decoration: none;
+  color: #436d7c;
+}
 
-.nav2-Documents {
+.nav2-docs {
+  text-decoration: none;
   color: #b5bdcd;
 }
 
@@ -80,23 +85,28 @@ body {
   border-radius: 5px;
   background-color: #1f4451;
   color: whitesmoke;
-  border-color: white;
+  border-color: #1f4451;
 }
 
 #addBtn:hover {
   background-color: #d3f7b5;
   color: black;
-  border-color: lightgray;
+  border-color: #d3f7b5;
 }
 
 #removeBtn:hover {
   background-color: lightcoral;
-  border-color: lightcoral;
+  border: 2px solid lightcoral;
+}
+
+#searchBar {
+  align-content: center;
 }
 
 .box {
   padding: 15px;
-  border-radius: 9px;
+  border-radius: 5px;
+  height: 25%;
   border-color: lightgray;
 }
 
@@ -164,6 +174,7 @@ td {
   color: #626d82;
   border-color: #e8ecf1;
 }
+
 .access {
   width: 75%;
   display: flex;
@@ -174,13 +185,14 @@ td {
   background-color: white;
   padding: 6px 15px;
   width: 160px;
-  color: #436d7c;
+  color: #626d82;
   border-radius: 5px;
-  border: 0.5mm solid #1f4451;
+  border: 0.5mm solid #b5bdcd;
 }
 
-.action:hover{
+.action:hover {
   background-color: #1f4451;
+  border-color: #1f4451;
   color: white;
 }
 
@@ -389,7 +401,7 @@ td {
   background-color: #e8ecf1;
   border: 1px solid #1f4451;
   box-shadow: 0 4px 10px #e8ecf1;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .table-dropdown-options a:hover {
