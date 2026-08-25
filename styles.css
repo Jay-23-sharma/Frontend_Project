@@ -11,7 +11,9 @@ html {
 body {
   background-color: rgb(228, 227, 227);
   height: 100%;
-  font-family: Spline sans, sans-serif;
+  font-family:
+    Spline sans,
+    sans-serif;
 }
 
 .main-container {
@@ -23,7 +25,8 @@ body {
   width: 80%;
   min-width: 0;
   align-items: flex-start;
-  padding-left: 3%;
+  padding-left: 2%;
+  padding-bottom: 2%;
   overflow-y: auto;
 }
 
@@ -54,7 +57,7 @@ body {
 
 #searchBar {
   align-content: center;
-  width: 40%;
+  width: 45%;
   position: relative;
 }
 
@@ -65,7 +68,7 @@ body {
   height: 100%;
   color: black;
   border: 1px solid #b5bdcd;
-  justify-self:end;
+  justify-self: end;
 }
 
 .search-icon {
@@ -76,7 +79,7 @@ body {
 
 .search-box {
   display: flex;
-  width: 40%;
+  width: 50%;
   justify-content: space-between;
   align-self: center;
   position: relative;
@@ -110,8 +113,6 @@ body {
   border: 2px solid lightcoral;
 }
 
-
-
 .box::placeholder {
   color: #b5bdcd;
 }
@@ -138,6 +139,7 @@ body {
 
 .main-table {
   width: 100%;
+  height: fit-content;
 }
 
 thead {
@@ -555,7 +557,6 @@ td {
   outline: none;
   border-color: #1f4451;
 }
-
 
 .addFormTable {
   padding: 10% 0;
