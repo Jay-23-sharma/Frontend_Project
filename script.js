@@ -419,7 +419,7 @@ documentBody.addEventListener("click", (event) => {
 
   if (moreBtn) {
     event.preventDefault();
-    event.stopPropagation();
+    
 
     const menu = moreBtn.closest(".table-menu");
 
