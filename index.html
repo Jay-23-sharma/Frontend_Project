@@ -26,12 +26,18 @@
             </div>
 
             <div class="arrow">
-              <a href="#" id="profile-btn"
-                ><img src="icons/Shape.png" alt="Random Arrow"
-              /></a>
+              <a href="#" id="profile-btn">
+                <img src="icons/Shape.png" alt="Random Arrow" />
+              </a>
+
               <div id="dropdown" class="dropdown">
-                <div class="profileOption"><a href="#">Profile</a></div>
-                <div class="profileOption"><a href="#">Logout</a></div>
+                <div class="profileOption">
+                  <a href="#">Profile</a>
+                </div>
+
+                <div class="profileOption">
+                  <a href="#">Logout</a>
+                </div>
               </div>
             </div>
           </div>
@@ -39,16 +45,24 @@
           <div class="side-element">
             <div class="utils">
               <div class="nav">
-                <div class="util-img"><img src="icons/home 1.png" /></div>
+                <div class="util-img">
+                  <img src="icons/home 1.png" />
+                </div>
+
                 <div class="text">
                   <a class="util-button" href="home.html">Home</a>
                 </div>
               </div>
 
               <div class="nav">
-                <div class="util-img"><img src="icons/file-text 1.png" /></div>
+                <div class="util-img">
+                  <img src="icons/file-text 1.png" />
+                </div>
+
                 <div class="text">
-                  <a class="util-button" href="index.html">Documents</a>
+                  <a class="util-button" href="index.html">
+                    Documents
+                  </a>
                 </div>
               </div>
 
@@ -56,12 +70,15 @@
                 <div class="util-img">
                   <img src="icons/message-circle 1.png" />
                 </div>
+
                 <div class="text">
-                  <a id="aiBtn" class="util-button" href=""
-                    >Chat with Neptune</a
-                  >
+                  <a id="aiBtn" class="util-button" href="">
+                    Chat with Neptune
+                  </a>
+
                   <dialog id="modalAI">
                     <h1>Nep-AI</h1>
+
                     <ul>
                       <li>Ask Anything</li>
                       <br />
@@ -75,22 +92,34 @@
                 <div class="util-img">
                   <img src="icons/help-circle 1.png" />
                 </div>
+
                 <div class="text">
-                  <a class="util-button" href="help.html">Help</a>
+                  <a class="util-button" href="help.html">
+                    Help
+                  </a>
                 </div>
               </div>
 
               <div class="nav">
-                <div class="util-img"><img src="icons/settings 1.png" /></div>
+                <div class="util-img">
+                  <img src="icons/settings 1.png" />
+                </div>
+
                 <div class="text">
-                  <a id="settingsBtn" class="util-button" href="#">Settings</a>
+                  <a id="settingsBtn" class="util-button" href="#">
+                    Settings
+                  </a>
+
                   <dialog id="modal">
                     <h2>Settings</h2>
+
                     <p>
                       These are settings which will show when clicked on
                       settings.
                     </p>
+
                     <br />
+
                     <ul>
                       <li>Profile</li>
                       <br />
@@ -103,12 +132,17 @@
 
             <div class="Contact-us">
               <img src="icons/phone 1.png" alt="" />
+
               <h4 class="help-heading">Having trouble?</h4>
+
               <p class="help">
-                Feel free to contact us and we will always help you through the
-                process
+                Feel free to contact us and we will always help you through
+                the process
               </p>
-              <button type="button" class="help-button">Contact Us</button>
+
+              <button type="button" class="help-button">
+                Contact Us
+              </button>
             </div>
           </div>
         </div>
@@ -119,13 +153,18 @@
           <div class="nav2-home">
             <a class="nav2-Home" href="home.html">Home</a>
           </div>
+
           <div class="nav2-arrow">
             <img src="icons/chevron-right.png" alt="" />
           </div>
+
           <div class="nav2-Documents">
-            <a class="nav2-docs" href="index.html">Documents</a>
+            <a class="nav2-docs" href="index.html">
+              Documents
+            </a>
           </div>
         </div>
+
         <div class="title">
           <div class="heading title-bar">
             <h1>My Documents</h1>
@@ -133,7 +172,10 @@
 
           <div class="search-box">
             <div class="taskBtn">
-              <button id="addBtn" type="button">Add</button>
+              <button id="addBtn" type="button">
+                Add
+              </button>
+
               <dialog id="modalTask">
                 <div class="addFormBox">
                   <div class="addHeading">
@@ -169,12 +211,21 @@
                           </span>
                         </button>
 
-                        <div id="statusOptions" class="dropdown-options">
-                          <div class="dropdown-option" data-value="completed">
+                        <div
+                          id="statusOptions"
+                          class="dropdown-options"
+                        >
+                          <div
+                            class="dropdown-option"
+                            data-value="completed"
+                          >
                             Completed
                           </div>
 
-                          <div class="dropdown-option" data-value="pending">
+                          <div
+                            class="dropdown-option"
+                            data-value="pending"
+                          >
                             Pending
                           </div>
 
@@ -194,6 +245,19 @@
                         />
                       </div>
 
+                      <div id="pendingContainer" class="pending-container">
+                        <label for="pendingCount">
+                          <b>How many people are pending?</b>
+                        </label>
+
+                        <input
+                          type="number"
+                          id="pendingCount"
+                          min="1"
+                          placeholder="Enter number"
+                        />
+                      </div>
+
                       <br />
 
                       <label for="actionStatus">
@@ -206,19 +270,33 @@
                           id="actionStatus"
                           class="dropdown-button"
                         >
-                          <span id="selectedAction"> Action Required </span>
+                          <span id="selectedAction">
+                            Action Required
+                          </span>
                         </button>
 
-                        <div id="actionOptions" class="dropdown-options">
-                          <div class="dropdown-option" data-value="sign-now">
+                        <div
+                          id="actionOptions"
+                          class="dropdown-options"
+                        >
+                          <div
+                            class="dropdown-option"
+                            data-value="sign-now"
+                          >
                             Sign-Now
                           </div>
 
-                          <div class="dropdown-option" data-value="preview">
+                          <div
+                            class="dropdown-option"
+                            data-value="preview"
+                          >
                             Preview
                           </div>
 
-                          <div class="dropdown-option" data-value="downloadPdf">
+                          <div
+                            class="dropdown-option"
+                            data-value="downloadPdf"
+                          >
                             Download-PDF
                           </div>
                         </div>
@@ -246,15 +324,21 @@
                   </div>
                 </div>
               </dialog>
-              <button id="removeBtn" type="remove">Remove</button>
+
+              <button id="removeBtn" type="button">
+                Remove
+              </button>
             </div>
+
             <form id="searchBar" action="">
-              <label for=""
-                ><input
+              <label>
+                <input
                   class="box"
                   type="text"
                   placeholder="Search Documents"
-                /><img
+                />
+
+                <img
                   src="icons/Layer_1.png"
                   alt="search logo"
                   class="search-icon"
@@ -263,14 +347,27 @@
             </form>
           </div>
         </div>
+
         <div class="content">
           <table class="main-table">
             <thead class="head">
               <tr>
-                <th class="element"><input type="checkbox" /></th>
-                <th class="element">Document Name</th>
-                <th class="element">Status</th>
-                <th class="element">Last Modified</th>
+                <th class="element">
+                  <input type="checkbox" id="selectAll" />
+                </th>
+
+                <th class="element">
+                  Document Name
+                </th>
+
+                <th class="element">
+                  Status
+                </th>
+
+                <th class="element">
+                  Last Modified
+                </th>
+
                 <th></th>
               </tr>
             </thead>
@@ -280,6 +377,7 @@
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

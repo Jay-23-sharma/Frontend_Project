@@ -7,7 +7,10 @@ dropBtn.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  if (!dropBtn.contains(event.target) && !dropdown.contains(event.target)) {
+  if (
+    !dropBtn.contains(event.target) &&
+    !dropdown.contains(event.target)
+  ) {
     dropdown.classList.remove("show");
   }
 });
@@ -15,7 +18,7 @@ document.addEventListener("click", (event) => {
 const helpBtn = document.querySelector(".help-button");
 
 helpBtn.addEventListener("click", () => {
-  alert("Our sevice team will contact you soon");
+  alert("Our service team will contact you soon");
 });
 
 const modal = document.querySelector("#modal");
@@ -63,8 +66,14 @@ const docTitle = document.querySelector("#docTitle");
 const statusValue = document.querySelector("#statusValue");
 const actionValue = document.querySelector("#actionValue");
 
+const pendingContainer = document.querySelector("#pendingContainer");
+const pendingCount = document.querySelector("#pendingCount");
+
 const documentBody = document.querySelector("#documentBody");
 const addForm = document.querySelector("#addForm");
+
+const selectAll = document.querySelector("#selectAll");
+const removeBtn = document.querySelector("#removeBtn");
 
 const searchBox = document.querySelector(".box");
 
@@ -84,7 +93,19 @@ function resetForm() {
   statusValue.value = "";
   actionValue.value = "";
 
+  pendingCount.value = "";
+  pendingContainer.classList.remove("show");
+
   editingId = null;
+}
+
+function showPendingInput() {
+  if (statusValue.value === "pending") {
+    pendingContainer.classList.add("show");
+  } else {
+    pendingContainer.classList.remove("show");
+    pendingCount.value = "";
+  }
 }
 
 function getStatus(status) {
@@ -135,8 +156,24 @@ function getStatusClass(status) {
   return "";
 }
 
+function getPendingText(count) {
+  const number = Number(count);
+
+  if (!number || number < 1) {
+    return "";
+  }
+
+  if (number === 1) {
+    return number;
+  }
+
+  return number;
+}
+
 function addDocuments() {
   documentBody.innerHTML = "";
+
+  selectAll.checked = false;
 
   const searchText = searchBox.value.trim().toLowerCase();
 
@@ -145,19 +182,31 @@ function addDocuments() {
     const status = getStatus(doc.status).toLowerCase();
     const action = getAction(doc.action).toLowerCase();
 
+    const pendingText = getPendingText(doc.pendingCount);
+
     return (
       title.includes(searchText) ||
       status.includes(searchText) ||
-      action.includes(searchText)
+      action.includes(searchText) 
+      
     );
   });
 
   filteredDocuments.forEach((doc) => {
     const row = document.createElement("tr");
 
+    const pendingText =
+      doc.status === "pending"
+        ? getPendingText(doc.pendingCount)
+        : "";
+
     row.innerHTML = `
       <td>
-        <input type="checkbox">
+        <input
+          type="checkbox"
+          class="document-checkbox"
+          data-id="${doc.id}"
+        >
       </td>
 
       <td>
@@ -170,6 +219,12 @@ function addDocuments() {
         <p class="status ${getStatusClass(doc.status)}">
           ${getStatus(doc.status)}
         </p>
+
+        ${
+          pendingText
+            ? `<p class="pending-info">Waiting for ${pendingText} people</p>`
+            : ""
+        }
       </td>
 
       <td>
@@ -219,18 +274,76 @@ function addDocuments() {
   });
 }
 
+selectAll.addEventListener("change", () => {
+  const checkboxes = document.querySelectorAll(
+    ".document-checkbox"
+  );
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  });
+});
+
+documentBody.addEventListener("change", (event) => {
+  if (
+    !event.target.classList.contains("document-checkbox")
+  ) {
+    return;
+  }
+
+  const checkboxes = document.querySelectorAll(
+    ".document-checkbox"
+  );
+
+  const checkedBoxes = document.querySelectorAll(
+    ".document-checkbox:checked"
+  );
+
+  selectAll.checked =
+    checkboxes.length > 0 &&
+    checkedBoxes.length === checkboxes.length;
+});
+
+removeBtn.addEventListener("click", () => {
+  const selectedCheckboxes = document.querySelectorAll(
+    ".document-checkbox:checked"
+  );
+
+  if (selectedCheckboxes.length === 0) {
+    alert("Please select at least one document to remove.");
+    return;
+  }
+
+  const selectedIds = Array.from(
+    selectedCheckboxes
+  ).map((checkbox) => checkbox.dataset.id);
+
+  documents = documents.filter(
+    (doc) => !selectedIds.includes(String(doc.id))
+  );
+
+  saveDocuments();
+
+  selectAll.checked = false;
+
+  addDocuments();
+});
+
 searchBox.addEventListener("input", () => {
   addDocuments();
 });
 
 addBtn.addEventListener("click", (event) => {
   event.preventDefault();
+
   resetForm();
+
   modalTask.showModal();
 });
 
 canBtn.addEventListener("click", () => {
   modalTask.close();
+
   resetForm();
 });
 
@@ -248,14 +361,20 @@ docStatus.addEventListener("click", (event) => {
   actionOptions.classList.remove("show");
 });
 
-statusOptions.querySelectorAll(".dropdown-option").forEach((option) => {
-  option.addEventListener("click", () => {
-    selectedStatus.textContent = option.textContent.trim();
-    statusValue.value = option.dataset.value;
+statusOptions
+  .querySelectorAll(".dropdown-option")
+  .forEach((option) => {
+    option.addEventListener("click", () => {
+      selectedStatus.textContent =
+        option.textContent.trim();
 
-    statusOptions.classList.remove("show");
+      statusValue.value = option.dataset.value;
+
+      statusOptions.classList.remove("show");
+
+      showPendingInput();
+    });
   });
-});
 
 docAction.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -264,14 +383,18 @@ docAction.addEventListener("click", (event) => {
   statusOptions.classList.remove("show");
 });
 
-actionOptions.querySelectorAll(".dropdown-option").forEach((option) => {
-  option.addEventListener("click", () => {
-    selectedAction.textContent = option.textContent.trim();
-    actionValue.value = option.dataset.value;
+actionOptions
+  .querySelectorAll(".dropdown-option")
+  .forEach((option) => {
+    option.addEventListener("click", () => {
+      selectedAction.textContent =
+        option.textContent.trim();
 
-    actionOptions.classList.remove("show");
+      actionValue.value = option.dataset.value;
+
+      actionOptions.classList.remove("show");
+    });
   });
-});
 
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".form-container")) {
@@ -283,9 +406,11 @@ document.addEventListener("click", (event) => {
   }
 
   if (!event.target.closest(".table-menu")) {
-    document.querySelectorAll(".table-dropdown-options").forEach((option) => {
-      option.classList.remove("show");
-    });
+    document
+      .querySelectorAll(".table-dropdown-options")
+      .forEach((option) => {
+        option.classList.remove("show");
+      });
   }
 });
 
@@ -297,13 +422,18 @@ documentBody.addEventListener("click", (event) => {
     event.stopPropagation();
 
     const menu = moreBtn.closest(".table-menu");
-    const options = menu.querySelector(".table-dropdown-options");
 
-    document.querySelectorAll(".table-dropdown-options").forEach((item) => {
-      if (item !== options) {
-        item.classList.remove("show");
-      }
-    });
+    const options = menu.querySelector(
+      ".table-dropdown-options"
+    );
+
+    document
+      .querySelectorAll(".table-dropdown-options")
+      .forEach((item) => {
+        if (item !== options) {
+          item.classList.remove("show");
+        }
+      });
 
     options.classList.toggle("show");
 
@@ -317,7 +447,9 @@ documentBody.addEventListener("click", (event) => {
 
     const id = editBtn.dataset.id;
 
-    const doc = documents.find((item) => String(item.id) === String(id));
+    const doc = documents.find(
+      (item) => String(item.id) === String(id)
+    );
 
     if (!doc) {
       return;
@@ -326,27 +458,46 @@ documentBody.addEventListener("click", (event) => {
     editingId = id;
 
     docTitle.value = doc.title;
+
     statusValue.value = doc.status;
+
     actionValue.value = doc.action;
 
-    selectedStatus.textContent = getStatus(doc.status);
-    selectedAction.textContent = getAction(doc.action);
+    selectedStatus.textContent =
+      getStatus(doc.status);
+
+    selectedAction.textContent =
+      getAction(doc.action);
+
+    if (doc.status === "pending") {
+      pendingCount.value = doc.pendingCount || "";
+
+      pendingContainer.classList.add("show");
+    } else {
+      pendingCount.value = "";
+
+      pendingContainer.classList.remove("show");
+    }
 
     modalTask.showModal();
 
     return;
   }
 
-  const deleteBtn = event.target.closest(".delete-document");
+  const deleteBtn =
+    event.target.closest(".delete-document");
 
   if (deleteBtn) {
     event.preventDefault();
 
     const id = deleteBtn.dataset.id;
 
-    documents = documents.filter((doc) => String(doc.id) !== String(id));
+    documents = documents.filter(
+      (doc) => String(doc.id) !== String(id)
+    );
 
     saveDocuments();
+
     addDocuments();
 
     return;
@@ -357,8 +508,14 @@ addForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const title = docTitle.value.trim();
+
   const status = statusValue.value;
+
   const action = actionValue.value;
+
+  const pendingNumber = Number(
+    pendingCount.value
+  );
 
   if (title === "") {
     alert("Please enter a document title.");
@@ -370,19 +527,43 @@ addForm.addEventListener("submit", (event) => {
     return;
   }
 
+  if (status === "pending") {
+    if (
+      pendingCount.value === "" ||
+      pendingNumber < 1 ||
+      !Number.isInteger(pendingNumber)
+    ) {
+      alert(
+        "Please enter how many people are pending."
+      );
+      return;
+    }
+  }
+
   if (action === "") {
     alert("Please select an action.");
     return;
   }
 
   if (editingId !== null) {
-    const doc = documents.find((item) => String(item.id) === String(editingId));
+    const doc = documents.find(
+      (item) =>
+        String(item.id) === String(editingId)
+    );
 
     if (doc) {
       doc.title = title;
       doc.status = status;
       doc.action = action;
+
+      if (status === "pending") {
+        doc.pendingCount = pendingNumber;
+      } else {
+        doc.pendingCount = 0;
+      }
+
       doc.date = new Date().toLocaleDateString();
+
       doc.time = new Date().toLocaleTimeString();
     }
   } else {
@@ -391,6 +572,10 @@ addForm.addEventListener("submit", (event) => {
       title: title,
       status: status,
       action: action,
+      pendingCount:
+        status === "pending"
+          ? pendingNumber
+          : 0,
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
     };
@@ -399,6 +584,7 @@ addForm.addEventListener("submit", (event) => {
   }
 
   saveDocuments();
+
   addDocuments();
 
   modalTask.close();
