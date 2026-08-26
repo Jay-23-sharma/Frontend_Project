@@ -94,6 +94,7 @@ body {
 
 #addBtn,
 #removeBtn {
+  cursor: pointer;
   font-size: 16px;
   width: 60%;
   border-radius: 5px;
@@ -203,6 +204,7 @@ td {
 }
 
 .action {
+  cursor: pointer;
   background-color: white;
   padding: 6px 15px;
   width: 160px;
@@ -342,6 +344,7 @@ td {
 }
 
 .help-button {
+  cursor: pointer;
   background-color: #1f4451;
   color: white;
   padding: 8px;

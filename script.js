@@ -46,19 +46,14 @@ dropBtn.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  if (
-    !dropBtn.contains(event.target) &&
-    !dropdown.contains(event.target)
-  ) {
+  if (!dropBtn.contains(event.target) && !dropdown.contains(event.target)) {
     dropdown.classList.remove("show");
   }
 });
 
-
 helpBtn.addEventListener("click", () => {
   alert("Our service team will contact you soon");
 });
-
 
 settgBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -71,7 +66,6 @@ modal.addEventListener("click", (event) => {
   }
 });
 
-
 chatBtn.addEventListener("click", (event) => {
   event.preventDefault();
   modalAI.showModal();
@@ -82,7 +76,6 @@ modalAI.addEventListener("click", (event) => {
     modalAI.close();
   }
 });
-
 
 function saveDocuments() {
   localStorage.setItem("document", JSON.stringify(documents));
@@ -191,8 +184,7 @@ function addDocuments() {
     return (
       title.includes(searchText) ||
       status.includes(searchText) ||
-      action.includes(searchText) 
-      
+      action.includes(searchText)
     );
   });
 
@@ -200,9 +192,7 @@ function addDocuments() {
     const row = document.createElement("tr");
 
     const pendingText =
-      doc.status === "pending"
-        ? getPendingText(doc.pendingCount)
-        : "";
+      doc.status === "pending" ? getPendingText(doc.pendingCount) : "";
 
     row.innerHTML = `
       <td>
@@ -279,9 +269,7 @@ function addDocuments() {
 }
 
 selectAll.addEventListener("change", () => {
-  const checkboxes = document.querySelectorAll(
-    ".document-checkbox"
-  );
+  const checkboxes = document.querySelectorAll(".document-checkbox");
 
   checkboxes.forEach((checkbox) => {
     checkbox.checked = selectAll.checked;
@@ -289,28 +277,21 @@ selectAll.addEventListener("change", () => {
 });
 
 documentBody.addEventListener("change", (event) => {
-  if (
-    !event.target.classList.contains("document-checkbox")
-  ) {
+  if (!event.target.classList.contains("document-checkbox")) {
     return;
   }
 
-  const checkboxes = document.querySelectorAll(
-    ".document-checkbox"
-  );
+  const checkboxes = document.querySelectorAll(".document-checkbox");
 
-  const checkedBoxes = document.querySelectorAll(
-    ".document-checkbox:checked"
-  );
+  const checkedBoxes = document.querySelectorAll(".document-checkbox:checked");
 
   selectAll.checked =
-    checkboxes.length > 0 &&
-    checkedBoxes.length === checkboxes.length;
+    checkboxes.length > 0 && checkedBoxes.length === checkboxes.length;
 });
 
 removeBtn.addEventListener("click", () => {
   const selectedCheckboxes = document.querySelectorAll(
-    ".document-checkbox:checked"
+    ".document-checkbox:checked",
   );
 
   if (selectedCheckboxes.length === 0) {
@@ -318,13 +299,11 @@ removeBtn.addEventListener("click", () => {
     return;
   }
 
-  const selectedIds = Array.from(
-    selectedCheckboxes
-  ).map((checkbox) => checkbox.dataset.id);
-
-  documents = documents.filter(
-    (doc) => !selectedIds.includes(String(doc.id))
+  const selectedIds = Array.from(selectedCheckboxes).map(
+    (checkbox) => checkbox.dataset.id,
   );
+
+  documents = documents.filter((doc) => !selectedIds.includes(String(doc.id)));
 
   saveDocuments();
 
@@ -365,20 +344,17 @@ docStatus.addEventListener("click", (event) => {
   actionOptions.classList.remove("show");
 });
 
-statusOptions
-  .querySelectorAll(".dropdown-option")
-  .forEach((option) => {
-    option.addEventListener("click", () => {
-      selectedStatus.textContent =
-        option.textContent.trim();
+statusOptions.querySelectorAll(".dropdown-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    selectedStatus.textContent = option.textContent.trim();
 
-      statusValue.value = option.dataset.value;
+    statusValue.value = option.dataset.value;
 
-      statusOptions.classList.remove("show");
+    statusOptions.classList.remove("show");
 
-      showPendingInput();
-    });
+    showPendingInput();
   });
+});
 
 docAction.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -387,18 +363,15 @@ docAction.addEventListener("click", (event) => {
   statusOptions.classList.remove("show");
 });
 
-actionOptions
-  .querySelectorAll(".dropdown-option")
-  .forEach((option) => {
-    option.addEventListener("click", () => {
-      selectedAction.textContent =
-        option.textContent.trim();
+actionOptions.querySelectorAll(".dropdown-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    selectedAction.textContent = option.textContent.trim();
 
-      actionValue.value = option.dataset.value;
+    actionValue.value = option.dataset.value;
 
-      actionOptions.classList.remove("show");
-    });
+    actionOptions.classList.remove("show");
   });
+});
 
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".form-container")) {
@@ -410,11 +383,9 @@ document.addEventListener("click", (event) => {
   }
 
   if (!event.target.closest(".table-menu")) {
-    document
-      .querySelectorAll(".table-dropdown-options")
-      .forEach((option) => {
-        option.classList.remove("show");
-      });
+    document.querySelectorAll(".table-dropdown-options").forEach((option) => {
+      option.classList.remove("show");
+    });
   }
 });
 
@@ -423,21 +394,16 @@ documentBody.addEventListener("click", (event) => {
 
   if (moreBtn) {
     event.preventDefault();
-    
 
     const menu = moreBtn.closest(".table-menu");
 
-    const options = menu.querySelector(
-      ".table-dropdown-options"
-    );
+    const options = menu.querySelector(".table-dropdown-options");
 
-    document
-      .querySelectorAll(".table-dropdown-options")
-      .forEach((item) => {
-        if (item !== options) {
-          item.classList.remove("show");
-        }
-      });
+    document.querySelectorAll(".table-dropdown-options").forEach((item) => {
+      if (item !== options) {
+        item.classList.remove("show");
+      }
+    });
 
     options.classList.toggle("show");
 
@@ -451,9 +417,7 @@ documentBody.addEventListener("click", (event) => {
 
     const id = editBtn.dataset.id;
 
-    const doc = documents.find(
-      (item) => String(item.id) === String(id)
-    );
+    const doc = documents.find((item) => String(item.id) === String(id));
 
     if (!doc) {
       return;
@@ -467,11 +431,9 @@ documentBody.addEventListener("click", (event) => {
 
     actionValue.value = doc.action;
 
-    selectedStatus.textContent =
-      getStatus(doc.status);
+    selectedStatus.textContent = getStatus(doc.status);
 
-    selectedAction.textContent =
-      getAction(doc.action);
+    selectedAction.textContent = getAction(doc.action);
 
     if (doc.status === "pending") {
       pendingCount.value = doc.pendingCount || "";
@@ -488,17 +450,14 @@ documentBody.addEventListener("click", (event) => {
     return;
   }
 
-  const deleteBtn =
-    event.target.closest(".delete-document");
+  const deleteBtn = event.target.closest(".delete-document");
 
   if (deleteBtn) {
     event.preventDefault();
 
     const id = deleteBtn.dataset.id;
 
-    documents = documents.filter(
-      (doc) => String(doc.id) !== String(id)
-    );
+    documents = documents.filter((doc) => String(doc.id) !== String(id));
 
     saveDocuments();
 
@@ -517,9 +476,7 @@ addForm.addEventListener("submit", (event) => {
 
   const action = actionValue.value;
 
-  const pendingNumber = Number(
-    pendingCount.value
-  );
+  const pendingNumber = Number(pendingCount.value);
 
   if (title === "") {
     alert("Please enter a document title");
@@ -537,9 +494,7 @@ addForm.addEventListener("submit", (event) => {
       pendingNumber < 1 ||
       !Number.isInteger(pendingNumber)
     ) {
-      alert(
-        "Please enter how many people are pending"
-      );
+      alert("Please enter how many people are pending");
       return;
     }
   }
@@ -550,10 +505,7 @@ addForm.addEventListener("submit", (event) => {
   }
 
   if (editingId !== null) {
-    const doc = documents.find(
-      (item) =>
-        String(item.id) === String(editingId)
-    );
+    const doc = documents.find((item) => String(item.id) === String(editingId));
 
     if (doc) {
       doc.title = title;
@@ -576,10 +528,7 @@ addForm.addEventListener("submit", (event) => {
       title: title,
       status: status,
       action: action,
-      pendingCount:
-        status === "pending"
-          ? pendingNumber
-          : 0,
+      pendingCount: status === "pending" ? pendingNumber : 0,
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
     };
