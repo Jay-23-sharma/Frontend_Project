@@ -1,53 +1,13 @@
 const dropdown = document.querySelector("#dropdown");
 const dropBtn = document.querySelector("#profile-btn");
 
-dropBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  dropdown.classList.toggle("show");
-});
-
-document.addEventListener("click", (event) => {
-  if (
-    !dropBtn.contains(event.target) &&
-    !dropdown.contains(event.target)
-  ) {
-    dropdown.classList.remove("show");
-  }
-});
-
 const helpBtn = document.querySelector(".help-button");
-
-helpBtn.addEventListener("click", () => {
-  alert("Our service team will contact you soon");
-});
 
 const modal = document.querySelector("#modal");
 const settgBtn = document.getElementById("settingsBtn");
 
-settgBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  modal.showModal();
-});
-
-modal.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    modal.close();
-  }
-});
-
 const modalAI = document.querySelector("#modalAI");
 const chatBtn = document.getElementById("aiBtn");
-
-chatBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  modalAI.showModal();
-});
-
-modalAI.addEventListener("click", (event) => {
-  if (event.target === modalAI) {
-    modalAI.close();
-  }
-});
 
 const modalTask = document.querySelector("#modalTask");
 const addBtn = document.querySelector("#addBtn");
@@ -79,6 +39,50 @@ const searchBox = document.querySelector(".box");
 
 let documents = JSON.parse(localStorage.getItem("document")) || [];
 let editingId = null;
+
+dropBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  dropdown.classList.toggle("show");
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    !dropBtn.contains(event.target) &&
+    !dropdown.contains(event.target)
+  ) {
+    dropdown.classList.remove("show");
+  }
+});
+
+
+helpBtn.addEventListener("click", () => {
+  alert("Our service team will contact you soon");
+});
+
+
+settgBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  modal.showModal();
+});
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.close();
+  }
+});
+
+
+chatBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  modalAI.showModal();
+});
+
+modalAI.addEventListener("click", (event) => {
+  if (event.target === modalAI) {
+    modalAI.close();
+  }
+});
+
 
 function saveDocuments() {
   localStorage.setItem("document", JSON.stringify(documents));
@@ -518,12 +522,12 @@ addForm.addEventListener("submit", (event) => {
   );
 
   if (title === "") {
-    alert("Please enter a document title.");
+    alert("Please enter a document title");
     return;
   }
 
   if (status === "") {
-    alert("Please select a status.");
+    alert("Please select a status");
     return;
   }
 
@@ -534,14 +538,14 @@ addForm.addEventListener("submit", (event) => {
       !Number.isInteger(pendingNumber)
     ) {
       alert(
-        "Please enter how many people are pending."
+        "Please enter how many people are pending"
       );
       return;
     }
   }
 
   if (action === "") {
-    alert("Please select an action.");
+    alert("Please select an action");
     return;
   }
 
