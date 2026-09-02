@@ -130,7 +130,7 @@ body {
   background-color: white;
   display: flex;
   align-items: center;
-  height: auto;
+  height: fit-content;
   border-radius: 1%;
   color: #436d7c;
   font-size: 100%;
