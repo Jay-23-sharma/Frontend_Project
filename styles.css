@@ -384,7 +384,7 @@ td {
   display: block;
 }
 
-.dropdown {
+#dropdown {
   display: none;
   position: absolute;
   right: 0;
@@ -396,19 +396,19 @@ td {
   z-index: 20;
 }
 
-.dropdown a {
+#dropdown a {
   display: block;
   padding: 10px;
   color: black;
   text-decoration: none;
 }
 
-.dropdown a:hover {
+#dropdown a:hover {
   background-color: #1f4451;
   color: white;
 }
 
-.dropdown.show {
+#dropdown.show {
   display: block;
 }
 
