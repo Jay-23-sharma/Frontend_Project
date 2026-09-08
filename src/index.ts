@@ -243,7 +243,6 @@ function addDocuments(): void {
 
     const action = getAction(doc.action).toLowerCase();
 
-    const pendingText = getPendingText(doc.pendingCount);
 
     return (
       title.includes(searchText) ||
